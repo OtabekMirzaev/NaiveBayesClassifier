@@ -1,15 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 24 13:28:50 2019
 
-@author: Otabek
-"""
 
 def Classifier(df_train, df_test):
     unique_decision = df_train.decision.unique()
     decision = []
     for i in range(len(df_test)):
-#        print(df_train.iloc[i,:-1])
         prop_table = []
         for j in unique_decision:
             probability = 1
@@ -20,8 +14,6 @@ def Classifier(df_train, df_test):
             
             probability *= len(result)/len(unique_decision)
             prop_table.append(probability)
-#            print(str(probability)+" "+j)
-        decision.append(unique_decision[prop_table.index(max(prop_table))])
-#        print("==============")    
+        decision.append(unique_decision[prop_table.index(max(prop_table))])   
         
     return decision
